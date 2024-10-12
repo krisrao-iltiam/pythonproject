@@ -66,7 +66,7 @@ HANGMANPICS = ['''
       |
 =========''']
  
-word_list = ["barranquilla", "bogota", "cali", "cartagena", "medellin", "bucaramanga", "manizales", "pasto"]
+word_list = ["barranquilla", "pereira" ,"bogota", "cali", "cartagena", "medellin", "bucaramanga", "manizales", "pasto"]
  
 chosen_word = list(random.choice(word_list))
  
