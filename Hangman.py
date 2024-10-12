@@ -80,7 +80,7 @@ update_display = 0
 #----------------------------------------------------------------------------------------------
  
 print(HANGMANPICS[update_display])
-guess = input(f"Welcome to hangman.\n{blank}\nMake a guess (It is a beautiful Colombian city)? ")
+guess = input(f"Bienviendo al juego \n")
 making_a_guess()
 print(HANGMANPICS[update_display])
 print(''.join(blank_list))
