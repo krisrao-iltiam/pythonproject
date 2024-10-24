@@ -1,3 +1,11 @@
+def main():
+    name = input("¿Cuál es tu nombre? ")
+    age = input("¿Cuántos años tienes? ")
+    print(f"Hola, {name}! Tienes {age} años.")
+
+if __name__ == "__main__":
+    main()
+    
 import random
  
 def making_a_guess():
