@@ -1,5 +1,5 @@
 import random
- 
+
 def making_a_guess():
     x = 0
     global update_display
@@ -9,12 +9,12 @@ def making_a_guess():
             blank_list[x] = guess.lower()
             correct_guess = True
         x += 1
-    if correct_guess == False:
+    if not correct_guess:
         print(f"There is no {guess}, sorry.")
         update_display += 1
     x = 0
- 
- 
+
+
 HANGMANPICS = ['''
   +---+
   |   |
@@ -65,32 +65,44 @@ HANGMANPICS = ['''
  / \  |
       |
 =========''']
- 
+
 word_list = ["barranquilla", "bogota", "cali", "cartagena", "medellin", "bucaramanga", "manizales", "pasto"]
- 
+
 chosen_word = list(random.choice(word_list))
- 
+
 blank = ""
 for letter in chosen_word:
     blank += "_"
 blank_list = list(blank)
- 
+
 update_display = 0
- 
+
 #----------------------------------------------------------------------------------------------
- 
+
 print(HANGMANPICS[update_display])
-guess = input(f"Bienviendo al juego \n")
+guess = input("Welcome to the game. Enter a letter:\n")
+
+# Validate that the user inputs only a single letter
+while not guess.isalpha() or len(guess) != 1:
+    guess = input("Please enter a single valid letter: ")
+
 making_a_guess()
 print(HANGMANPICS[update_display])
 print(''.join(blank_list))
+
 while update_display < 6:
     if blank_list == chosen_word:
         print("YOU WIN!")
         break
     guess = input("Make another guess? ")
+
+    # Validate the input before making a guess
+    while not guess.isalpha() or len(guess) != 1:
+        guess = input("Please enter a single valid letter: ")
+
     making_a_guess()
     print(HANGMANPICS[update_display])
     print(''.join(blank_list))
+
 if update_display == 6:
     print("GAME OVER.")
